@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import { useQuery, useMutation, gql } from "@apollo/client";
 
 const GET_BOOKS = gql`
@@ -6,7 +6,10 @@ const GET_BOOKS = gql`
     books {
       id
       title
-      author
+      author {
+        id
+        name
+      }
     }
   }
 `;
@@ -44,16 +47,16 @@ function BookList() {
   const [addBook] = useMutation(ADD_BOOK);
   const [updateBook] = useMutation(UPDATE_BOOK);
   const [deleteBook] = useMutation(DELETE_BOOK);
-  
+
   const [form, setForm] = useState({
-    id: '',
-    title: '',
-    author: ''
+    id: "",
+    title: "",
+    author: "",
   });
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    setForm(prevState => ({ ...prevState, [name]: value }));
+    setForm((prevState) => ({ ...prevState, [name]: value }));
   };
 
   const handleSubmit = async (event) => {
@@ -61,10 +64,12 @@ function BookList() {
     if (!form.id) {
       await addBook({ variables: { title: form.title, author: form.author } });
     } else {
-      await updateBook({ variables: { id: form.id, title: form.title, author: form.author } });
+      await updateBook({
+        variables: { id: form.id, title: form.title, author: form.author },
+      });
     }
     refetch();
-    setForm({ id: '', title: '', author: '' });
+    setForm({ id: "", title: "", author: "" });
   };
 
   const handleEdit = (book) => {
@@ -79,26 +84,28 @@ function BookList() {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
 
+  console.log("fetch books", data);
+
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <input 
-          name="title" 
-          placeholder="Title" 
-          value={form.title} 
-          onChange={handleInputChange} 
+        <input
+          name="title"
+          placeholder="Title"
+          value={form.title}
+          onChange={handleInputChange}
         />
-        <input 
-          name="author" 
-          placeholder="Author" 
-          value={form.author} 
-          onChange={handleInputChange} 
+        <input
+          name="author"
+          placeholder="Author"
+          value={form.author}
+          onChange={handleInputChange}
         />
         <button type="submit">{form.id ? "Update" : "Add"}</button>
       </form>
 
       <ul>
-        {data.books.map(book => (
+        {data.books.map((book) => (
           <li key={book.id}>
             {book.title} by {book.author}
             <button onClick={() => handleEdit(book)}>Edit</button>
