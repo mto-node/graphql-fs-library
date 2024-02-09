@@ -1,4 +1,6 @@
 const { ApolloServer } = require("apollo-server");
+// const sequelize = require("./models/Sequelize");
+// require("dotenv").config(); // Load environment variables from .env file
 const typeDefs = require("./schema");
 const resolvers = require("./resolver");
 

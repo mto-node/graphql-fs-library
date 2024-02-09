@@ -4,6 +4,12 @@ const { gql } = require("apollo-server");
 // that together define the "shape" of queries that are executed against
 // your data.
 const typeDefs = gql`
+  type User {
+    id: ID!
+    name: String!
+    email: String!
+  }
+
   type Author {
     id: ID!
     name: String!
@@ -16,6 +22,9 @@ const typeDefs = gql`
   }
 
   type Query {
+    users: [User]
+    user(id: ID!): User
+
     books: [Book]
     book(id: ID!): Book
 
