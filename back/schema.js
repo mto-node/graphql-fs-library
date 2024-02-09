@@ -1,4 +1,5 @@
 const { gql } = require("apollo-server");
+// const { books, authors } = require("./data");
 
 const typeDefs = gql`
   type Author {
@@ -9,14 +10,15 @@ const typeDefs = gql`
   type Book {
     id: ID!
     title: String!
+    author: Author
   }
 
   type Query {
     books: [Book]
     book(id: ID!): Book
 
-    authors: [Book]
-    author(id: ID!): Book
+    authors: [Author]
+    author(id: ID!): Author
   }
 
   type Mutation {
@@ -27,4 +29,3 @@ const typeDefs = gql`
 `;
 
 module.exports = typeDefs;
-// author: Author

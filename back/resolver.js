@@ -3,8 +3,8 @@ const { books, authors } = require("./data");
 const resolvers = {
   Query: {
     books: () => books,
-    // books: () => module.books.getBooks(),
     book: (_, { id }) => books.find((book) => book.id === id),
+    // books: () => module.books.getBooks(),
 
     authors: () => authors,
     author: (_, { id }) => authors.find((author) => author.id === id),

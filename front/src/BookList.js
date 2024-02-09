@@ -6,13 +6,22 @@ const GET_BOOKS = gql`
     books {
       id
       title
-      author {
-        id
-        name
-      }
     }
   }
 `;
+
+// const GET_BOOKS_DETAILS = gql`
+//   query GetBooksDetails {
+//     books {
+//       id
+//       title
+//       author {
+//         id
+//         name
+//       }
+//     }
+//   }
+// `;
 
 const ADD_BOOK = gql`
   mutation AddBook($title: String!, $author: String!) {

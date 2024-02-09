@@ -1,5 +1,4 @@
 const { ApolloServer } = require("apollo-server");
-// const { books, authors } = require("./data");
 const typeDefs = require("./schema");
 const resolvers = require("./resolver");
 
