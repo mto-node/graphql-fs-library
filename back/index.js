@@ -2,8 +2,11 @@ const { ApolloServer } = require("apollo-server");
 const typeDefs = require("./schema");
 const resolvers = require("./resolver");
 
+// The ApolloServer constructor requires two parameters: your schema
+// definition and your set of resolvers.
 const server = new ApolloServer({ typeDefs, resolvers });
 
+// Passing an ApolloServer instance to the `startStandaloneServer` function:
 const startServer = async () => {
   try {
     const { url } = await server.listen();
@@ -14,3 +17,9 @@ const startServer = async () => {
 };
 
 startServer();
+
+// import { startStandaloneServer } from '@apollo/server/standalone';
+// prepares your app to handle incoming requests
+// const { url } = await startStandaloneServer(server, {
+//   listen: { port: 4000 },
+// });

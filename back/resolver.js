@@ -1,10 +1,12 @@
-const { books, authors } = require("./data");
+// const { books, authors } = require("./data");
+const BookController = require("./controllers/BookControllers");
 
+// Resolvers define how to fetch the types defined in your schema.
+// This resolver retrieves books from the "books" array above.
 const resolvers = {
   Query: {
-    books: () => books,
-    book: (_, { id }) => books.find((book) => book.id === id),
-    // books: () => module.books.getBooks(),
+    books: () => BookController.getBooks(),
+    book: (_, { id }) => BookController.getBookById(id),
 
     authors: () => authors,
     author: (_, { id }) => authors.find((author) => author.id === id),

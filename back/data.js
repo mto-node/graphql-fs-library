@@ -8,4 +8,4 @@ const books = [
   { id: "2", title: "Brave New World", author: 2 },
 ];
 
-exports.books = { books, authors };
+module.exports = { books, authors };
