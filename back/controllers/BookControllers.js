@@ -1,12 +1,10 @@
 // const { books, authors } = require("../data");
-const sequelize = require("../models/Sequelize");
-const Book = require("../models/Book");
-const Author = require("../models/Author");
+const { Book, Author } = require("../db/Sequelize");
 
 class BookController {
   constructor() {
-    this.Book = sequelize.models.Book; // Reference model directly
-    this.Author = sequelize.models.Auther; // Reference model directly
+    // this.Book = sequelize.models.Book; // Reference model directly
+    // this.Author = sequelize.models.Auther; // Reference model directly
   }
 
   async getBooks() {
@@ -15,11 +13,12 @@ class BookController {
     // Fetch all books with their associated authors in a single query
     const books = await Book.findAll({
       include: {
-        model: this.Author, // Include the Author model
+        model: Author, // Include the Author model
         attributes: ["name"], // Only fetch the 'name' attribute from Author
       },
     });
 
+    // console.log("books", books[0].Author.name);
     // const books = await this.Book.findAll();
     // const authors = await this.Author.findAll();
     // return books.map(async (book) => {
@@ -30,15 +29,15 @@ class BookController {
     return books;
   }
 
-  getBookById(id) {
-    return books.find((book) => {
-      if (book.id === id) {
-        const author = authors.find((author) => author.id == book.author);
-        book.author = author;
-        return book;
-      }
-    });
-  }
+  // getBookById(id) {
+  //   return books.find((book) => {
+  //     if (book.id === id) {
+  //       const author = authors.find((author) => author.id == book.author);
+  //       book.author = author;
+  //       return book;
+  //     }
+  //   });
+  // }
 }
 
 module.exports = new BookController();
