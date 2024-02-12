@@ -87,6 +87,7 @@ export default function Users() {
     setForm({ id: "", name: "", email: "", password: "" });
   };
 
+  // LOADING
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
 
