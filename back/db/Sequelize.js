@@ -29,6 +29,9 @@ const Author = AuthorModel(sequelize, DataTypes);
 Author.hasMany(Book);
 Book.belongsTo(Author);
 
+// Author.hasMany(Book, { foreignKey: "authorId" });
+// Book.belongsTo(Author, { foreignKey: "authorId" });
+
 // Synchronize the models with the database
 (async () => {
   try {
@@ -41,9 +44,9 @@ Book.belongsTo(Author);
     // await sequelize.sync();
 
     // This will create the tables if they don't exist and drop them if they do (force: true)
-    await sequelize.sync({ force: true });
+    // await sequelize.sync({ force: true });
 
-    await initDb();
+    // await initDb();
 
     console.log("Database synchronized.");
   } catch (error) {

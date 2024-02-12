@@ -3,7 +3,6 @@ const typeDefs = require("./schema");
 const resolvers = require("./resolver");
 const sequelize = require("./db/Sequelize");
 
-sequelize.initDb();
 // The ApolloServer constructor requires two parameters: your schema
 // definition and your set of resolvers.
 const server = new ApolloServer({ typeDefs, resolvers });
