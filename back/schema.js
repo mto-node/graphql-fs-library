@@ -38,6 +38,10 @@ const typeDefs = gql`
     updateUser(id: ID!, name: String!, email: String!, password: String!): User!
     deleteUser(id: ID!): User!
 
+    addAuthor(name: String!): Author!
+    updateAuthor(id: ID!, name: String): Author!
+    deleteAuthor(id: ID!): Author!
+
     addBook(title: String!, authorId: ID!): Book!
     updateBook(id: ID!, title: String, authorId: ID!): Book!
     deleteBook(id: ID!): Book!

@@ -54,6 +54,38 @@ class BookController {
       throw error;
     }
   }
+
+  async updateBook(id, title, authorId) {
+    console.log("updateBook");
+    try {
+      const book = await Book.findByPk(id);
+      if (!book) {
+        throw new Error("Book not found");
+      }
+      book.title = title;
+      book.AuthorId = authorId;
+      await book.save();
+      return book;
+    } catch (error) {
+      console.error("Error updating book:", error);
+      throw error;
+    }
+  }
+
+  async deleteBook(id) {
+    console.log("deleteBook");
+    try {
+      const book = await Book.findByPk(id);
+      if (!book) {
+        throw new Error("Book not found");
+      }
+      await book.destroy();
+      return book;
+    } catch (error) {
+      console.error("Error deleting book:", error);
+      throw error;
+    }
+  }
 }
 
 module.exports = new BookController();

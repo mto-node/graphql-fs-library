@@ -15,7 +15,6 @@ const ADD_AUTHOR = gql`
     addAuthor(name: $name) {
       id
       name
-      email
     }
   }
 `;

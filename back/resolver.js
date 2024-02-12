@@ -21,19 +21,20 @@ const resolvers = {
     // USER
     addUser: (_, { name, email, password }) =>
       UserController.addUser(name, email, password),
-
     updateUser: (_, { id, name, email, password }) =>
       UserController.updateUser(id, name, email, password),
-
     deleteUser: (_, { id }) => UserController.deleteUser(id),
+
+    // AUTHOR
+    addAuthor: (_, { name }) => AuthorController.addAuthor(name),
+    updateAuthor: (_, { id, name }) => AuthorController.updateAuthor(id, name),
+    deleteAuthor: (_, { id }) => AuthorController.deleteAuthor(id),
 
     // BOOK
     addBook: (_, { title, authorId }) =>
       BookController.addBook(title, authorId),
-
     updateBook: (_, { id, title, author }) =>
       BookController.updateBook(id, title, author),
-
     deleteBook: (_, { id }) => BookController.deleteBook(id),
   },
 };
