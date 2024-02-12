@@ -31,8 +31,7 @@ class BookController {
     // const author = await Author.findByPk(book.AuthorId);
     // book.author = author;
 
-    console.log(book);
-    // console.log(book.Author.dataValues);
+    // console.log(book);
     return book;
   }
 
