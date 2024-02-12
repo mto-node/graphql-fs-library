@@ -1,7 +1,9 @@
 import App from "./App";
 import ErrorPage from "./pages/ErrorPage";
 import Home from "./pages/Home";
-import Users from "./components/User/Users/Users";
+import Users from "./components/User/Users";
+import Books from "./components/Book/Books";
+import Authors from "./components/Author/Authors";
 import { createBrowserRouter } from "react-router-dom";
 
 const routerConfig = [
@@ -22,6 +24,14 @@ const routerConfig = [
       {
         path: "users",
         element: <Users />,
+      },
+      {
+        path: "books",
+        element: <Books />,
+      },
+      {
+        path: "authors",
+        element: <Authors />,
       },
     ],
   },

@@ -117,12 +117,14 @@ export default function Users() {
         <input
           name="email"
           placeholder="email"
+          type="email"
           value={form.email}
           onChange={handleInputChange}
         />
         <input
           name="password"
           placeholder="password"
+          type="password"
           value={form.password}
           onChange={handleInputChange}
         />

@@ -11,6 +11,12 @@ export default function NavBar() {
         <li>
           <NavLink to="/users">Users</NavLink>
         </li>
+        <li>
+          <NavLink to="/books">Books</NavLink>
+        </li>
+        <li>
+          <NavLink to="/authors">Authors</NavLink>
+        </li>
       </ul>
     </nav>
   );
