@@ -3,7 +3,7 @@ const typeDefs = require("./schema");
 const resolvers = require("./resolver");
 const sequelize = require("./db/Sequelize");
 require("dotenv").config();
-const port = process.env.APP_PORT || 3000;
+const port = process.env.APP_PORT || 4000;
 
 // The ApolloServer constructor requires two parameters: your schema
 // definition and your set of resolvers.
