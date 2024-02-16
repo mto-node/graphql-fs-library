@@ -6,7 +6,6 @@ import {
   ApolloProvider,
   HttpLink,
 } from "@apollo/client";
-import BookList from "./BookList";
 import NavBar from "./components/NavBar/NavBar";
 
 // Création d'un client Apollo
