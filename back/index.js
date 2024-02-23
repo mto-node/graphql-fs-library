@@ -8,6 +8,7 @@ const port = process.env.APP_PORT || 4000;
 // The ApolloServer constructor requires two parameters: your schema
 // definition and your set of resolvers.
 const server = new ApolloServer({ typeDefs, resolvers });
+console.log("server: ", server);
 
 // Passing an ApolloServer instance to the `startStandaloneServer` function:
 const startServer = async () => {
