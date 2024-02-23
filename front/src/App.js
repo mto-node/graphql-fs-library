@@ -11,7 +11,7 @@ import NavBar from "./components/NavBar/NavBar";
 // Création d'un client Apollo
 const client = new ApolloClient({
   link: new HttpLink({
-    uri: "http://localhost:4000", // Assurez-vous que cela pointe vers votre serveur GraphQL
+    uri: "https://graphql-library.onrender.com", // Assurez-vous que cela pointe vers votre serveur GraphQL
   }),
   cache: new InMemoryCache(),
 });
