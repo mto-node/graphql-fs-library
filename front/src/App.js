@@ -1,20 +1,10 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import {
-  ApolloClient,
-  InMemoryCache,
-  ApolloProvider,
-  HttpLink,
-} from "@apollo/client";
+import { ApolloProvider } from "@apollo/client";
 import NavBar from "./components/NavBar/NavBar";
+import { createApolloClient } from "./apolloClient";
 
-// Création d'un client Apollo
-const client = new ApolloClient({
-  link: new HttpLink({
-    uri: "https://graphql-library.onrender.com", // Assurez-vous que cela pointe vers votre serveur GraphQL
-  }),
-  cache: new InMemoryCache(),
-});
+const client = createApolloClient();
 
 function App() {
   return (
